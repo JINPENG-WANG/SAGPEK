@@ -62,9 +62,25 @@
 		{
 		 echo "Example of how to use SAGPEK
 		 *********************************
-		 Example1:
-		 Example2:
-		 Example3:"
+		 Example 1:  for test! 
+		 	bash SAGPEK.sh -t TEST
+			
+		 Example 2:  for detecting mutation sites of HBV 
+		 	bash SAGPEK.sh -t HBV
+			
+		 Example 3:  for detecting mutations of PAH
+		 	bash SAGPEK.sh -t PAH
+			
+		 Example 4:  for detecting mutations of cattle CN
+		 	bash SAGPEK.sh -t cattle_CN
+			
+		 Example 5: for detecing mutations of cattle DUMPS
+		 	bash SAGPEK.sh -t cattle_DUMPS
+		
+		 Example 6: for detecing mutations of customized sits 
+		 	bash SAGPEK.sh -t custom -g ab.tags.txt
+		 
+		 "
 		 exit 1
 		}
 
