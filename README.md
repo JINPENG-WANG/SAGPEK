@@ -26,17 +26,17 @@ $  SAGPEK.bat custom ab.tags.txt
 
 For Unix-like systems, the SAGPEK can be used like:
 
-$ bash SAGPEK.bat -t TEST
+$ bash SAGPEK.bash -t TEST
 
-$ bash SAGPEK.bat -t HBV
+$ bash SAGPEK.bash -t HBV
 
-$ bash SAGPEK.bat -t PAH
+$ bash SAGPEK.bash -t PAH
 
-$ bash SAGPEK.bat -t cattle_CN
+$ bash SAGPEK.bash -t cattle_CN
 
-$ bash SAGPEK.bat -t cattle_DUMPS
+$ bash SAGPEK.bash -t cattle_DUMPS
 
-$ bash SAGPEK.bat -t custom -g ab.tags.txt
+$ bash SAGPEK.bash -t custom -g ab.tags.txt
 
 
 For the TEST, HBV, PAH, cattle_CN, and cattle_DUMPS types, SAGPEK has built-in anchoring sequences. For the custom type, anchoring sequences will be obtained from the "ab.tags.txt" file, which SAGPEK provided as an example file under the "Custom" folder.
