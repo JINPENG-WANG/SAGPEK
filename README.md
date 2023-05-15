@@ -9,19 +9,33 @@ For Unix-like systems, users can install SAGPEK directly, as R and Perl are buil
 # Usage Examples
 We list a set of common uses of SAGPEK below. We provide ABI format input files in the ABI folder, which can be used to test the SAGPEK. 
 For Windows platforms, the SAGPEK can be used like:
+
 $  SAGPEK.bat TEST
+
 $  SAGPEK.bat HBV
+
 $  SAGPEK.bat PAH
+
 $  SAGPEK.bat cattle_CN
+
 $  SAGPEK.bat cattle_DUMPS
+
 $  SAGPEK.bat custom ab.tags.txt
 
+
 For Unix-like systems, the SAGPEK can be used like:
+
 $ bash SAGPEK.bat -t TEST
+
 $ bash SAGPEK.bat -t HBV
+
 $ bash SAGPEK.bat -t PAH
+
 $ bash SAGPEK.bat -t cattle_CN
+
 $ bash SAGPEK.bat -t cattle_DUMPS
+
 $ bash SAGPEK.bat -t custom -g ab.tags.txt
+
 
 For the TEST, HBV, PAH, cattle_CN, and cattle_DUMPS types, SAGPEK has built-in anchoring sequences. For the custom type, anchoring sequences will be obtained from the "ab.tags.txt" file, which SAGPEK provided as an example file under the "Custom" folder.
