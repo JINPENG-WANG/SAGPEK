@@ -26,6 +26,12 @@ $  SAGPEK.bat custom ab.tags.txt
 
 For Unix-like systems, the SAGPEK can be used like:
 
+$ bash SAGPEK.bash -h 
+ # This will print help page.
+ 
+$ bash SAGPEK.bash -u 
+ # This will print the examples about how to use SAGPEK.
+
 $ bash SAGPEK.bash -t TEST
 
 $ bash SAGPEK.bash -t HBV
