@@ -129,7 +129,12 @@ while getopts ":t:g:u:h" opt; do
 done
 shift $((OPTIND -1))
 
+echo "Performing signal values extraction from ABI-format files!"
 Rscript Src/Script01.get.amPeak.R
+echo "Signal values extraction done!"
 
+echo "Performing genotyping!"
 perl Src/Script02.get.genotypes.pl $type $tag_file 
+echo "Genotyping done!"
 
+echo "Program completed!"
