@@ -9,7 +9,7 @@ if(!requireNamespace("Biostrings", quietly = TRUE))
   BiocManager::install("Biostrings")
 
 if(!requireNamespace("this.path", quietly = TRUE))
-  install.packages("this.path")
+  install.packages("this.path", repos="https://raw.githubusercontent.com/ArcadeAntics/PACKAGES")
 library(sangerseqR)
 
 # Set working directory.
