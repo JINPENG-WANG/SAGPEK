@@ -12,6 +12,10 @@ if(!requireNamespace("this.path", quietly = TRUE))
   install.packages("this.path", repos="https://raw.githubusercontent.com/ArcadeAntics/PACKAGES")
 library(sangerseqR)
 
+args=commandArgs(T)
+type=args[1]
+
+
 # Set working directory.
 print(this.path::this.dir())
 
@@ -22,6 +26,11 @@ setwd("../")
 outpath="Amp/"
 
 abi_files=list.files(path="ABI",pattern="*.ab1")
+if(type == "TEST"){
+	abi_files=list.files(path="ABI/testdata", pattern="*.ab1")
+}
+	
+
 
 
 abi_files
@@ -29,7 +38,12 @@ abi_files
 
 for (num in 1:length(abi_files)){
 	file=abi_files[num]
-	seq <- readsangerseq(paste("ABI/",file,sep=""))
+	seq=""
+	if(type=="TEST"){
+		seq <- readsangerseq(paste("ABI/testdata/",file,sep=""))
+	}else{
+		seq<-readsangerseq(paste("ABI/",file,sep=""))
+	}
 	seq <- makeBaseCalls(seq,ratio=0.2)
 	peakAmp <- peakAmpMatrix(seq)
 	peakAmp <- as.data.frame(peakAmp)
