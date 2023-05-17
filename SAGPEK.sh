@@ -172,7 +172,7 @@ echo "Signal values extraction done!"
 
 
 echo "Performing genotyping!"
-perl Src/Script02.get.genotypes.pl $type $tag_file 
+perl Src/Script02.get.genotypes.pl $type $tag
 echo "Genotyping done!"
 
 echo "Program completed!"
