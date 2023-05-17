@@ -166,12 +166,15 @@ if ! type "perl" > /dev/null; then
 	exit 1
 fi
 
+
+
+
 # Remove previous AmpFiles
 rm -rf Amp/*peakAmp.txt
 
 
 echo "Performing signal values extraction from ABI-format files!"
-Rscript Src/Script01.get.amPeak.R
+Rscript Src/Script01.get.amPeak.R  $type
 echo "Signal values extraction done!"
 
 
