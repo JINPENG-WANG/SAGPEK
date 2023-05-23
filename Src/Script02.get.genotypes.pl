@@ -14,6 +14,9 @@ if($type=~/custom/i){
 		print "   Orientation of Sanger sequencing is Reverse!\n";
 
 	}
+	unless (-e "Custom/$tag_file") {
+		die(" Error: Tag file $tag_file not found in the Custom directory!\n");
+	}
 	my $tag_fh = IO::File->new("Custom/$tag_file",'r');
 	#print "type is custom\ntag file is $tag_file\n";
 	my $custom_tag_count=0;
