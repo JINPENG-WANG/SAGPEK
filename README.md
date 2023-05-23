@@ -23,6 +23,8 @@ $  SAGPEK.bat cattle_DUMPS
 
 $  SAGPEK.bat custom ab.tags.txt
 
+$  SAGPEK.bat custom ab.tags.txt r
+
 
 For Unix-like systems, the SAGPEK can be used like:
 
@@ -44,5 +46,6 @@ $ bash SAGPEK.bash -t cattle_DUMPS
 
 $ bash SAGPEK.bash -t custom -g ab.tags.txt
 
+$ bash SAGPEK.bash -t custom -g ab.tags.txt -r
 
 For the TEST, HBV, PAH, cattle_CN, and cattle_DUMPS types, SAGPEK has built-in anchoring sequences. For the custom type, anchoring sequences will be obtained from the "ab.tags.txt" file, which SAGPEK provided as an example file under the "Custom" folder.
