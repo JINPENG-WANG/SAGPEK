@@ -19,6 +19,12 @@ type=args[1]
 # Set working directory.
 setwd((this.path::this.dir()))
 setwd("../")
+setwd("Amp")
+allfile<-dir()
+peakfile<-grep("*peakAmp.txt",allfile)
+file.remove(allfile[peakfile])
+setwd("../")
+
 
 outpath="Amp/"
 
