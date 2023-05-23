@@ -187,6 +187,6 @@ fi
 Rscript Src/Script01.get.amPeak.R  $type
 
 
-perl Src/Script02.get.genotypes.pl $type $orientation $tag
+perl Src/Script02.get.genotypes.pl $type  $tag $orientation
 
 echo "#SAGPEK: Program completed!"
