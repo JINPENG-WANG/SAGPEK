@@ -182,7 +182,7 @@ fi
 
 
 # Remove previous AmpFiles
-#rm -rf Amp/*peakAmp.txt
+rm -rf Amp/*peakAmp.txt
 
 
 Rscript Src/Script01.get.amPeak.R  $type
@@ -193,4 +193,4 @@ perl Src/Script02.get.genotypes.pl $type $orientation $tag
 echo "#SAGPEK: Program completed!"
 
 # Remove AmpFiles
-#rm -rf Amp/*peakAmp.txt
+rm -rf Amp/*peakAmp.txt
