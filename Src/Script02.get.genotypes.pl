@@ -13,7 +13,7 @@ if($type=~/custom/i){
 		$orientation = shift @ARGV;
 		if($orientation=~/f/i){
 			print "    Orientation of Sanger sequencing is Forward!\n";
-		 }elsif($Orientation=~/r/i){
+		 }elsif($orientation=~/r/i){
 		 	print "    Orientation of Sanger sequencing is Reverse!\n";
 		}
 	}
