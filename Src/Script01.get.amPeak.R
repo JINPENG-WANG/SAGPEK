@@ -22,7 +22,7 @@ setwd("../")
 setwd("Amp")
 allfile<-dir()
 peakfile<-grep("*peakAmp.txt",allfile)
-file.remove(allfile[peakfile])
+invisible(file.remove(allfile[peakfile]))
 setwd("../")
 
 
