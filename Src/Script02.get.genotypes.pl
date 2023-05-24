@@ -11,8 +11,11 @@ if($type=~/custom/i){
 	my $tag_file=shift @ARGV;
 	if (@ARGV>0) {
 		$orientation = shift @ARGV;
-		print "   Orientation of Sanger sequencing is Reverse!\n";
-
+		if($orientation=~/f/i){
+			print "    Orientation of Sanger sequencing is Forward!\n";
+		 }elsif($Orientation=~/r/i){
+		 	print "    Orientation of Sanger sequencing is Reverse!\n";
+		}
 	}
 	unless (-e "Custom/$tag_file") {
 		die(" Error: Tag file $tag_file not found in the Custom directory!\n");
