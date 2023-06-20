@@ -135,6 +135,7 @@ for my $ampfile (@ampfiles) {
 		my @primary_r = reverse @primary;
 		my @secondary = split //, $secondary_seq;
 		my @secondary_r = reverse @secondary;
+  		@sigs = reverse @sigs;
 		my $primary_r_c="";
 		my $secondary_r_c="";
 		for my $p_r (@primary_r){
