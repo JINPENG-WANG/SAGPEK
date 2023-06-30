@@ -59,6 +59,6 @@ for (num in 1:length(abi_files)){
 	      ']',
 	      round(num/N*100),'%')
 	Sys.sleep(0.05)
-	if(num==N) cat ('\nDONE!\n')
+	if(num==N) cat ('   DONE!\n')
 	else cat('\r')
 }
