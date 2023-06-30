@@ -450,7 +450,7 @@ for my $ampfile (@ampfiles) {
 				}
 				$condon_all_possible_string=join(",", @condon_all_possible);
 				if(@condon_all_possible>2){
-					$condon_all_possible_string="Warning: Two situations happen here: 1) two variations co-exit in the codon. 2) To much noise exist for this Sanger sequencing result!";
+					$condon_all_possible_string="Warning: Two situations happen here: 1) two variations co-exit in the codon. 2) Too much noise exist for this Sanger sequencing result!";
 				}
 
 				my %AA_all_possible;
