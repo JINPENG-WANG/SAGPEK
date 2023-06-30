@@ -33,7 +33,11 @@ if(type == "TEST"){
 	abi_files=list.files(path="ABI/testdata", pattern="*.ab1")
 }
 message(" #SAGPEK: Step 1: Extracting signals from ABI-format files!")
+N=length(abi_files)
+width=options()$width
+
 for (num in 1:length(abi_files)){
+	
 	file=abi_files[num]
 	seq=""
 	if(type=="TEST"){
@@ -49,5 +53,12 @@ for (num in 1:length(abi_files)){
 	peakAmp$sig <- ifelse(peakAmp$ratio>0.2,T,F)
 	out_file=paste(outpath,file,".peakAmp.txt",sep="")
 	write.table(peakAmp, file=out_file,row.names=F,quote=F,sep="\t")
+	# progress bar
+	cat('[', paste0(rep('#', num/N*width), collapse=''),
+	      paste0(rep('-', width - num/N*width), collapse=''),
+	      ']',
+	      round(num/N*100),'%')
+	Sys.sleep(0.05)
+	if(num==N) cat ('\nDONE!\n')
+	else cat('\r')
 }
-message("   Done!")
