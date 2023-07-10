@@ -521,7 +521,7 @@ for (num in 1:length(abi_files)){
   colnames(peakAmp) <- c("A","C","G","T")
   peakAmp$ratio <- apply(peakAmp,1,function(x){a=sort(x,decreasing=T);a[2]/a[1]})
   peakAmp$sig <- ifelse(peakAmp$ratio>0.2,T,F)
-  out_file=paste(outpath,file,".peakAmp.txt",seq="")
+  out_file=paste(outpath,file,".peakAmp.txt",sep="")
   write.table(peakAmp,file=out_file,row.names=F,quote=F,sep="\t")
   
   # progress bar
