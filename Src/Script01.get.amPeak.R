@@ -41,31 +41,31 @@ setClass("abif",
          )
 )
 
-setGeneric("sangerseq", function(obj) standardGeneric("sangerseq"))
+invisible(setGeneric("sangerseq", function(obj) standardGeneric("sangerseq")))
 
 
-setGeneric("makeBaseCalls", 
-           function(obj, ratio=.33) standardGeneric("makeBaseCalls"))
+invisible(setGeneric("makeBaseCalls", 
+           function(obj, ratio=.33) standardGeneric("makeBaseCalls")))
 
 
-setGeneric("traceMatrix", 
-           function(obj) standardGeneric("traceMatrix"))
+invisible(setGeneric("traceMatrix", 
+           function(obj) standardGeneric("traceMatrix")))
 
-setGeneric("traceMatrix<-", 
-           function(obj, value) standardGeneric("traceMatrix<-"))
+invisible(setGeneric("traceMatrix<-", 
+           function(obj, value) standardGeneric("traceMatrix<-")))
 
-setGeneric("peakPosMatrix", 
-           function(obj) standardGeneric("peakPosMatrix"))
+invisible(setGeneric("peakPosMatrix", 
+           function(obj) standardGeneric("peakPosMatrix")))
 
 
-setGeneric("peakPosMatrix<-", 
-           function(obj, value) standardGeneric("peakPosMatrix<-"))
+invisible(setGeneric("peakPosMatrix<-", 
+           function(obj, value) standardGeneric("peakPosMatrix<-")))
 
-setGeneric("peakAmpMatrix", 
-           function(obj) standardGeneric("peakAmpMatrix"))
+invisible(setGeneric("peakAmpMatrix", 
+           function(obj) standardGeneric("peakAmpMatrix")))
 
-setGeneric("peakAmpMatrix<-", 
-           function(obj, value) standardGeneric("peakAmpMatrix<-"))
+invisible(setGeneric("peakAmpMatrix<-", 
+           function(obj, value) standardGeneric("peakAmpMatrix<-")))
 
 
 
@@ -535,18 +535,3 @@ for (num in 1:length(abi_files)){
   else cat('\r')
 }
   
-    
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
