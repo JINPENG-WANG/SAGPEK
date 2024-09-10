@@ -1,3 +1,11 @@
+如有使用问题，请联系负责人： 王金鹏，博士，副研究员 wangjinpeng0225@163.com
+
+山东省农业科学院畜牧兽医研究所
+
+研究方向：奶牛基因组选择，重要经济性状关键基因挖掘
+
+
+
 # SAGPEK
   Software packages for Sanger sequencing have shown little progress over time, although it is still widely used in human genetic disease diagnosis and livestock animal breeding. Determining the genotypes of tens to hundreds of sites in hundreds to thousands of samples simultaneously in Sanger sequencing data by manual visual conformation with traditional software is still time-consuming and error-prone. Here we present SAGPEK, which automatically identifies genotypes of target loci from hundreds to thousands of ABI-format Sanger sequencing data and directly reports genotypes to the output file. 
   SAGPEK is suitable for human genetic disease screening, drug-resistant mutation identification, livestock animal functional mutation detection, and other similar situations.
