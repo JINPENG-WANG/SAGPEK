@@ -21,12 +21,12 @@ Goal: Confirm SAGPEK is installed and working.
 Command:
 $ perl SAGPEK.pl -type TEST
 
-2. Base Calling & Genotyping
+3. Base Calling & Genotyping
 Goal: Call genotypes from chromatogram files.
 Command:
 $ perl SAGPEK.pl -type  custom -tag ab.tags.txt -orientation f -AA off
 
-3. Chromatogram Visualization
+5. Chromatogram Visualization
 Goal: Generate chromatogram images for visual inspection.
 Command:
 $ perl SAGPEK.pl -type custom -tag ab.tags.txt -orientation f -AA on -chromatogram on
