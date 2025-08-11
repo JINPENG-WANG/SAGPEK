@@ -18,7 +18,7 @@ GetOptions(
 	"AA:s" => \$AA,
 	"chromatogram:s" => \$chromatogram,
 
-) or die "Usage: $0 [--type=type of analysis] [--orient=Orientation of Sanger seq] [--tag=Tag file of Custom type]\n";
+) or die "Usage: $0 [-type=type of analysis] [-orientation=r or f] [-tag=Tag file of Custom type] [-AA=on or off] [-chromatogram=on or off] \n";
 
 $orientation //= "f";
 $AA ="on" if defined $AA && $AA eq '';
@@ -155,7 +155,7 @@ for my $abi_file (@abifiles) {
 		push @sigs, $sig;
 	}
 
-	if($orientation eq "r"){
+	if($orientation=~/^r$/i){
 		my @primary= split //, $primary_seq;
 		my @primary_r = reverse @primary;
 		my @secondary = split //, $secondary_seq;
@@ -244,7 +244,7 @@ for my $abi_file (@abifiles) {
 
 	#####...#####
 	# For TEST.
-	if($type=~/TEST/i){	
+	if($type=~/^TEST$/i){	
 		my %sites_based_on_1 = map_TEST_sites($primary_seq);
 		for my $site_no (1, 2, 3) {
 			my $tag_name="TEST_$site_no";
@@ -286,9 +286,9 @@ for my $abi_file (@abifiles) {
 				my @AA_all_possible=keys %AA_all_possible;
 				$AA_all_possible_string=join(",", @AA_all_possible);
 			}
-			if($AA=~/on/i){
+			if($AA=~/^on$/i){
 				$fh_geno_out->print("\t$condon_all_possible_string\t$AA_all_possible_string");
-			}elsif($AA=~/off/i){
+			}elsif($AA=~/^off$/i){
 				$fh_geno_out->print("\t$condon_all_possible_string");
 			}
 		}
@@ -298,7 +298,7 @@ for my $abi_file (@abifiles) {
 
 	#####...#####
 	# For HBV.
-	if($type=~/HBV/i){
+	if($type=~/^HBV$/i){
 		my %HBV_ref=(
 			"rt166"=>"F",
 			"rt169"=>"I",
@@ -386,7 +386,7 @@ for my $abi_file (@abifiles) {
 
 	###...###
 	# For newborn.
-	if($type =~/PAH/i){
+	if($type =~/^PAH$/i){
 		my %sites_based_on_1 = map_newborn_PAH_sites ($primary_seq);
 		my @AA_sites=(48, 65, 241, 243, 245, 261, 300, 388, 390, 403, 408, 413, 414, 415);
 		for my $AA_site (@AA_sites) {
@@ -437,7 +437,7 @@ for my $abi_file (@abifiles) {
 
 	###...###
 	# For Custom Sites.
-	if($type =~/custom/i){
+	if($type =~/^custom$/i){
 		my %sites_based_on_1 = map_Custom_sites ($primary_seq, \%custom);
 		for my $custom_tag_count (sort {$a<=>$b} keys %custom) {
 			my $tag_name = $custom{$custom_tag_count}{tag_name};
@@ -485,6 +485,8 @@ for my $abi_file (@abifiles) {
 				$AA_all_possible_string=join(",", @AA_all_possible);
 				if(@AA_all_possible>2){
 					$AA_all_possible_string=".";
+				}elsif(@AA_all_possible <1){
+					$AA_all_possible_string="NA";
 				}
 			}
 			if($AA=~/on/i){
@@ -495,7 +497,7 @@ for my $abi_file (@abifiles) {
 		}
 		$fh_geno_out->print("\n");
 	}
-	if ($chromatogram=~/on/i) {
+	if ($chromatogram=~/^on$/i) {
 		plotchroma($abi_file);
 	}
 
