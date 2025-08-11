@@ -35,16 +35,25 @@ $ perl SAGPEK.pl -type custom -tag ab.tags.txt -orientation f -AA on -chromatogr
 # Usage Examples
 We list a set of common uses of SAGPEK below. We provide several ABI format files in the ABI folder as test dataset, which can be used to test SAGPEK.
 The SAGPEK can be used in Windows/Linux/Mac systems as follows:
+
 $  perl SAGPEK.pl -type TEST
+
 This will generate a test output file (TEST.genotype.txt) in the ./SAGPEK/Genotype/ directory, allowing users to verify correct installation and execution.
 If the -AA is set to off, the SAGPEK can be run as follows:
+
 $  perl SAGPEK.pl -type TEST -AA off
+
 This will generate a test output file which only reports the genotypes of tested loci but not the amino acids alterations.
 Users can also test SAGPEK with the custom type. We have provided an tag file named "ab.tags.txt" in the Custom folder which stores anchoring sequences and their names. Users can run SAGPEK with the following command: 
+
 $  perl SAGPEK.pl -type custom -tag ab.tags.txt 
+
 This will generate an output file (Custom.mutants.txt) in the ./SAGPEK/Genotype/ directory, which stores genotypes of loci mapped with the anchoring sequencings in the “ab.tags.txt” file.
 For the HBV, PAH, cattle_CN, and cattle_DUMPS types, SAGPEK has built-in anchoring sequences.
 If chromatogram is needed, the SAGPEK can be run with the following command:
+
 $ perl SAGPEK.pl -type custom -tag ab.tags.txt -chromatogram on
+
 This will generate the chromatogram plots in the chromatogram directory for all investigated input ABI files.
+
 For the TEST, HBV, PAH, cattle_CN, and cattle_DUMPS types, SAGPEK has built-in anchoring sequences. For the custom type, anchoring sequences will be obtained from the "ab.tags.txt" file, which SAGPEK provided as an example file under the "Custom" folder.
