@@ -74,6 +74,7 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
 **Output:**<br>
 (1)Genotype table (.genotype.txt)<br>
 (2)Chromatogram image files (.png) (example below):<br>
+![Chromatogram image]
 
 
 
