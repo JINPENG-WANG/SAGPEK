@@ -47,6 +47,8 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
 
 
 ## 2. Base Calling & Genotyping<br>
+**Example Command:**<br>
+`perl SAGPEK.pl -type  custom -tag ab.tags.txt -orientation f -AA off`<br><br>
 **Goal:** Call genotypes from chromatogram files.<br><br>
 **Required inputs:**<br>
     (1)ABI files (*.ab1)<br> 
@@ -57,11 +59,11 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
 **Output:**<br>
     (1)Genotype table (.genotype.txt) listing homozygous/heterozygous calls at target loci<br>
     (2)Optional amino acid alteration information in the .genotype.txt file if -AA one<br><br>
-**Example Command:**<br>
-`perl SAGPEK.pl -type  custom -tag ab.tags.txt -orientation f -AA off`<br><br>
 
 
 ## 3. Chromatogram Visualization<br>
+**Example Command:**<br>
+`perl SAGPEK.pl -type custom -tag ab.tags.txt -AA on -chromatogram on`<br><br>
 **Goal:** Generate chromatogram images for visual inspection.<br><br>
 **Required inputs:**<br>
 (1)ABI files (*.ab1)<br>
@@ -73,8 +75,7 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
 (1)Genotype table (.genotype.txt)<br>
 (2)Chromatogram image files (.png) (example below):<br>
 
-**Example Command:**<br>
-`perl SAGPEK.pl -type custom -tag ab.tags.txt -AA on -chromatogram on`<br><br>
+
 
 
 
