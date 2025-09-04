@@ -16,47 +16,46 @@ Before using, users should install an Perl interpreter, such as from the ActiveS
 # SAGPEK Usage Overview
 SAGPEK is a cross-platform Perl-based tool for automated genotype calling from Sanger sequencing data. This quick guide summarizes common usage scenarios, with grouped example commands, input requirements, and expected outputs.
 
-1. Test Run (verify installation)
+## 1. Test Run (verify installation)
    
-Goal: Confirm SAGPEK is installed and working.
-
-Required input: none
-
-Optional input: none
-
-Output: Information below will be printed to screen, confirming successful installation.
-
-Parameter Information:
-
-    The Orientation of Sanger sequencing is: f!
+**Goal:** Confirm SAGPEK is installed and working.<br>
+**Required input:** none<br>
+**Optional input:** none<br>
+**Output:** Information below will be printed to screen, confirming successful installation.<br>
+  *Parameter Information:*<br>
+  *The Orientation of Sanger sequencing is: f!*<br>
+  *The 'r' is for Reverse and 'f' for Forward!*<br>
+  *-----------------------------------------------------------*<br>
+  *Processing 221224_0001.3401.F_A01!*<br>
+  *Step 1: Extracting signals from ABI-format files......Done!*<br>
+  *Step 2: Performing genotyping......Done!*<br>
+  .........*<br>
+**Command:**<br>
+  `perl SAGPEK.pl -type TEST`<br>
+## 2. Base Calling & Genotyping<br>
+**Goal:** Call genotypes from chromatogram files.<br>
+**Required inputs:**<br> 
+    - ABI files (*.ab1)<br> 
+    - Tag file with target loci (ab.tags.txt)<br>
+**Optinal inputs:**<br>
+    - -orientaion f/r(Forward or Reverse; default = f)<br>
+    - -AA on/off (report amino acid alterations; default = off)<br>
+**Output:**<br>
+    - Genotype table (.genotype.txt) listing homozygous/heterozygous calls at target loci<br>
+    - Optional amino acid alteration information in the .genotype.txt file if -AA one<br>
     
-    The 'r' is for Reverse and 'f' for Forward!
-    
------------------------------------------------------------  
-
-Processing 221224_0001.3401.F_A01!  
-
-  Step 1: Extracting signals from ABI-format files......Done!  
   
-  Step 2: Performing genotyping......Done!  
-  
-.........
-
-Command:    
-
-$ perl SAGPEK.pl -type TEST  
-
-
-2. Base Calling & Genotyping  
-Goal: Call genotypes from chromatogram files.
-Required inputs:
-  ABI files (*.ab1) 
 Command:  
+
 $ perl SAGPEK.pl -type  custom -tag ab.tags.txt -orientation f -AA off
 
-5. Chromatogram Visualization  
+
+## 3. Chromatogram Visualization  
+
 Goal: Generate chromatogram images for visual inspection.  
+
 Command:  
+
 $ perl SAGPEK.pl -type custom -tag ab.tags.txt -orientation f -AA on -chromatogram on
 
 
