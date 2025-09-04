@@ -76,7 +76,16 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
 (2)Chromatogram image files (.png) (example below):<br>
 ![SAGPEK chromatogram](https://github.com/JINPENG-WANG/SAGPEK/blob/main/chromatogram/test/221224_0001.3401.F_A01.chromatogram.png)
 
-
+## 4. Batch Processing (multiple samples)<br>
+**Example Command:**<br>
+`perl SAGPEK.pl -type custom -tag ab.tags.txt -AA on`<br><br>
+**Goal:** Genotype hundreds of ABI files in one run.<br><br>
+**Required inputs:**<br>
+(1)All ABI files (*.ab1) in the ABI directory<br>
+(2)Tag file (ab.tags.txt)<br><br>
+**Optional inputs:**same as above<br>
+**Output:**<br>
+(1)Genotype table (.genotype.txt) with all samples summarized<br>
 
 
 
