@@ -16,21 +16,36 @@ Before using, users should install an Perl interpreter, such as from the ActiveS
 # SAGPEK Usage Overview
 SAGPEK is a cross-platform Perl-based tool for automated genotype calling from Sanger sequencing data. This quick guide summarizes common usage scenarios, with grouped example commands, input requirements, and expected outputs.
 
-1. Test Run (verify installation)  
+1. Test Run (verify installation)
+   
 Goal: Confirm SAGPEK is installed and working.
+
 Required input: none
+
 Optional input: none
+
 Output: Information below will be printed to screen, confirming successful installation.
+
 Parameter Information:
+
     The Orientation of Sanger sequencing is: f!
+    
     The 'r' is for Reverse and 'f' for Forward!
+    
 -----------------------------------------------------------  
+
 Processing 221224_0001.3401.F_A01!  
+
   Step 1: Extracting signals from ABI-format files......Done!  
+  
   Step 2: Performing genotyping......Done!  
+  
 .........
+
 Command:    
+
 $ perl SAGPEK.pl -type TEST  
+
 
 2. Base Calling & Genotyping  
 Goal: Call genotypes from chromatogram files.
