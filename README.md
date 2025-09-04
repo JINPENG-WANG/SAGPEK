@@ -17,7 +17,8 @@ Before using, users should install an Perl interpreter, such as from the ActiveS
 SAGPEK is a cross-platform Perl-based tool for automated genotype calling from Sanger sequencing data. This quick guide summarizes common usage scenarios, with grouped example commands, input requirements, and expected outputs.
 
 ## 1. Test Run (verify installation)
-   
+**Example command:**<br>
+  `perl SAGPEK.pl -type TEST`<br><br> 
 **Goal:** Confirm SAGPEK is installed and working.<br><br>
 **Required input:** none<br><br>
 **Optional input:** none<br><br>
@@ -30,7 +31,7 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
   *Step 1: Extracting signals from ABI-format files......Done!*<br>
   *Step 2: Performing genotyping......Done!*<br>
   .........*<br><br>
-  (1)Genotype table (TEST.genotype.txt) in the *Genotype* directory with the following content:<br>
+  This command with generate a genotype table file (TEST.genotype.txt) in the *Genotype* directory with the following content:<br>
   | SampleID                        | First_Site_Genotype | Second_Site_Genotype | Third_Site_Genotype |
 |---------------------------------|---------------------|----------------------|---------------------|
 | testdata/221224_0001.3401.F_A01 | CCT,CAT             | CTT                  | ATG                 |
@@ -44,8 +45,7 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
 | testdata/221224_0009.3409.F_A09 | CCT,CAT             | CTT                  | ATG                 |
 | testdata/221224_0010.3410.F_A10 | CAT,CCT             | CTT                  | ATG                 |
 
-<br>**Example command:**<br>
-  `perl SAGPEK.pl -type TEST`<br><br>
+
 ## 2. Base Calling & Genotyping<br>
 **Goal:** Call genotypes from chromatogram files.<br><br>
 **Required inputs:**<br>
