@@ -21,6 +21,8 @@ GetOptions(
 ) or die "Usage: $0 [-type=type of analysis] [-orientation=r or f] [-tag=Tag file of Custom type] [-AA=on or off] [-chromatogram=on or off] \n";
 
 $orientation //= "f";
+$AA //="off";
+$chromatogram //= "off";
 $AA ="on" if defined $AA && $AA eq '';
 $chromatogram = "off" if defined $chromatogram && $chromatogram eq '';
 print "\nParameter Information:\n\tThe Orientation of Sanger sequencing is: $orientation!\n\tThe 'r' is for Reverse and 'f' for Forward!\n" if  $orientation;
