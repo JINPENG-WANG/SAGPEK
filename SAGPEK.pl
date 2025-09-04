@@ -518,7 +518,6 @@ for my $abi_file (@abifiles) {
 	if ($chromatogram=~/^on$/i) {
 		plotchroma($abi_file);
 	}
-
 	print "Done!\n";
 }
 
@@ -1036,8 +1035,14 @@ sub plotchroma {
 	# === CONFIGURATION ===
 	my $abi_file = shift;
 	my $prefix;
-	if($abi_file=~/ABI\/(.+)\.ab1/){
-		$prefix=$1;
+	if($type=~/TEST/i){
+		if($abi_file=~/ABI\/testdata\/(.+)\.ab1/){
+			$prefix=$1;
+		}
+	}else{
+		if($abi_file=~/ABI\/(.+)\.ab1/){
+			$prefix=$1;
+		}
 	}
 	my $output_image="$prefix.chromatogram.png";
 
@@ -1113,7 +1118,14 @@ sub plotchroma {
 	}
 
 	# === WRITE IMAGE FILE ===
-	open my $out, '>', "chromatogram/$output_image" or die "Cannot open $output_image: $!\n";
+	my $out;
+	if($type=~/TEST/i){
+		open $out, '>', "chromatogram/test/$output_image" or die "Cannot open $output_image: $!\n";
+	
+	}else{
+		open $out, '>', "chromatogram/$output_image" or die "Cannot open $output_image: $!\n";
+	}
+	
 	binmode $out;
 	print $out $img->png;
 	close $out;
