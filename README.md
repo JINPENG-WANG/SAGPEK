@@ -30,7 +30,21 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
   *Step 1: Extracting signals from ABI-format files......Done!*<br>
   *Step 2: Performing genotyping......Done!*<br>
   .........*<br><br>
-**Example command:**<br>
+  (1)Genotype table (TEST.genotype.txt) in the *Genotype* directory with the following content:<br>
+  | SampleID                        | First_Site_Genotype | Second_Site_Genotype | Third_Site_Genotype |
+|---------------------------------|---------------------|----------------------|---------------------|
+| testdata/221224_0001.3401.F_A01 | CCT,CAT             | CTT                  | ATG                 |
+| testdata/221224_0002.3402.F_A02 | CCT,CAT             | CTT                  | CTG,ATG             |
+| testdata/221224_0003.3403.F_A03 | CCT,CAT             | CTT                  | ATG                 |
+| testdata/221224_0004.3404.F_A04 | CAT,CCT             | CTT                  | ATG,CTG             |
+| testdata/221224_0005.3405.F_A05 | CAT,CCT             | CTT                  | ATG                 |
+| testdata/221224_0006.3406.F_A06 | CAT,CCT             | CTT                  | ATG                 |
+| testdata/221224_0007.3407.F_A07 | CAT,CCT             | CTT                  | ATG                 |
+| testdata/221224_0008.3408.F_A08 | CAT,CCT             | CTT                  | ATG                 |
+| testdata/221224_0009.3409.F_A09 | CCT,CAT             | CTT                  | ATG                 |
+| testdata/221224_0010.3410.F_A10 | CAT,CCT             | CTT                  | ATG                 |
+
+<br>**Example command:**<br>
   `perl SAGPEK.pl -type TEST`<br><br>
 ## 2. Base Calling & Genotyping<br>
 **Goal:** Call genotypes from chromatogram files.<br><br>
