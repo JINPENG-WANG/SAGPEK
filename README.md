@@ -18,9 +18,9 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
 
 ## 1. Test Run (verify installation)
    
-**Goal:** Confirm SAGPEK is installed and working.<br>
-**Required input:** none<br>
-**Optional input:** none<br>
+**Goal:** Confirm SAGPEK is installed and working.<br><br>
+**Required input:** none<br><br>
+**Optional input:** none<br><br>
 **Output:** Information below will be printed to screen, confirming successful installation.<br>
   *Parameter Information:*<br>
   *The Orientation of Sanger sequencing is: f!*<br>
@@ -29,25 +29,22 @@ SAGPEK is a cross-platform Perl-based tool for automated genotype calling from S
   *Processing 221224_0001.3401.F_A01!*<br>
   *Step 1: Extracting signals from ABI-format files......Done!*<br>
   *Step 2: Performing genotyping......Done!*<br>
-  .........*<br>
-**Command:**<br>
-  `perl SAGPEK.pl -type TEST`<br>
+  .........*<br><br>
+**Example command:**<br>
+  `perl SAGPEK.pl -type TEST`<br><br>
 ## 2. Base Calling & Genotyping<br>
-**Goal:** Call genotypes from chromatogram files.<br>
-**Required inputs:**<br> 
-    - ABI files (*.ab1)<br> 
-    - Tag file with target loci (ab.tags.txt)<br>
+**Goal:** Call genotypes from chromatogram files.<br><br>
+**Required inputs:**<br>
+    (1)ABI files (*.ab1)<br> 
+    (2)Tag file with target loci (ab.tags.txt)<br><br>
 **Optinal inputs:**<br>
-    - -orientaion f/r(Forward or Reverse; default = f)<br>
-    - -AA on/off (report amino acid alterations; default = off)<br>
+    (1)-orientaion f/r(Forward or Reverse; default = f)<br>
+    (2)-AA on/off (report amino acid alterations; default = off)<br><br>
 **Output:**<br>
-    - Genotype table (.genotype.txt) listing homozygous/heterozygous calls at target loci<br>
-    - Optional amino acid alteration information in the .genotype.txt file if -AA one<br>
-    
-  
-Command:  
-
-$ perl SAGPEK.pl -type  custom -tag ab.tags.txt -orientation f -AA off
+    (1)Genotype table (.genotype.txt) listing homozygous/heterozygous calls at target loci<br>
+    (2)Optional amino acid alteration information in the .genotype.txt file if -AA one<br><br>
+**Example Command:**<br>
+`perl SAGPEK.pl -type  custom -tag ab.tags.txt -orientation f -AA off`<br><br>
 
 
 ## 3. Chromatogram Visualization  
