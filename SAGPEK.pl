@@ -21,8 +21,8 @@ GetOptions(
 ) or die "Usage: $0 [-type=type of analysis] [-orientation=r or f] [-tag=Tag file of Custom type] [-AA=on or off] [-chromatogram=on or off] \n";
 
 $orientation //= "f";
-$AA //="off";
-$chromatogram //= "off";
+$AA //= "off";
+$chromatogram //="off";
 $AA ="on" if defined $AA && $AA eq '';
 $chromatogram = "off" if defined $chromatogram && $chromatogram eq '';
 print "\nParameter Information:\n\tThe Orientation of Sanger sequencing is: $orientation!\n\tThe 'r' is for Reverse and 'f' for Forward!\n" if  $orientation;
@@ -65,9 +65,13 @@ if($type=~/custom/i){
 
 my @abifiles=<ABI/*ab1>;
 
-if(@abifiles <1){
-	die(" Error: No ABI files found! Please make sure ABI-format files are listed under the ABI directory!\n");
+sub check_abifiles {
+	my @inputfiles = @_;
+	if(@inputfiles<1){
+		die (" Error: No ABI files found! Please make sure ABI-format files are listed under the ABI directory!\n");
+	}
 }
+
 
 my $fh_geno_out;
 
@@ -80,12 +84,15 @@ if($type=~/^TEST$/i){
 		$fh_geno_out->print("\tFirst_Site_Genotype\tSecond_Site_Genotype\tThird_Site_Genotype\n");
 	}
 }elsif($type=~/^cattle_CN$/i){
+	check_abifiles(@abifiles);
 	$fh_geno_out= IO::File->new(">Genotype/cattle_CN.genotype.txt");
 	$fh_geno_out->print("SampleID\tCN_genotype\tAmino Acids\n");
 }elsif($type=~/^cattle_DUMPS$/){
+	check_abifiles(@abifiles);
 	$fh_geno_out=IO::File->new(">Genotype/cattle_DUMPS.genotype.txt");
 	$fh_geno_out->print("SampleID\tDUMPS_genotype\tAmino Acids\n");
 }elsif($type=~/^HBV$/i){
+	check_abifiles(@abifiles);
 	$fh_geno_out=IO::File->new(">Genotype/HBV.genotype.txt");
 	$fh_geno_out->print("SampleID");
 	my @rt_nums=(166, 169, 173, 180, 181, 184, 191, 194, 200, 202, 204, 207, 213, 214, 215, 217, 221, 229, 233, 236, 237, 238, 245, 250, 256);
@@ -94,6 +101,7 @@ if($type=~/^TEST$/i){
 	}
 	$fh_geno_out->print("\n");
 }elsif($type=~/^PAH$/){
+	check_abifiles(@abifiles);
 	$fh_geno_out = IO::File->new(">Genotype/Newborn_PAH.genotype.txt");
 	$fh_geno_out->print("SampleID");
 	my @AA_nums = (53, 107, 111, 171, 223, 225, 243, 304, 356, 388, 392, 399, 408, 413);
@@ -102,6 +110,7 @@ if($type=~/^TEST$/i){
 	}
 	$fh_geno_out->print("\n");
 }elsif($type=~/^custom$/i){
+	check_abifiles(@abifiles);
 	$fh_geno_out = IO::File->new(">Genotype/Custom.genotype.txt");
 	$fh_geno_out ->print("SampleID");
 	for my $custom_tag_count (sort {$a<=>$b} keys %custom) {
@@ -117,6 +126,13 @@ if($type=~/^TEST$/i){
 	die "Error Information: the type \"$type\" is not supported by SAGPEK!\n";
 }
 
+
+
+
+#################### RUNs starts here!############################
+if($type=~/^TEST/i){
+	@abifiles=<ABI/testdata/*ab1>;
+}
 for my $abi_file (@abifiles) {
 	my $prefix;
 	if($abi_file=~/ABI\/(.+)\.ab1/){
@@ -506,6 +522,9 @@ for my $abi_file (@abifiles) {
 	print "Done!\n";
 }
 
+
+
+#############################################
 sub map_cattle_sites {
 	my $seq = shift;
 	my $cattle_tag = shift;
@@ -543,7 +562,7 @@ sub map_cattle_sites {
 }
 
 
-
+################################################
 sub map_TEST_sites {
 	my $seq=shift;
 	my %sites_cor_based_on_1;
@@ -587,7 +606,7 @@ sub map_TEST_sites {
 	return %sites_cor_based_on_1;
 }
 
-
+######################################################
 sub map_newborn_PAH_sites {
 	my $seq = shift;
 	my %tags=(
@@ -644,7 +663,7 @@ sub map_newborn_PAH_sites {
 	return %sites_cor_based_on_1;
 }
 
-
+###########################################################
 sub map_Custom_sites {
 	my $seq = shift;
 	my $custom_ref = shift;
@@ -682,7 +701,7 @@ sub map_Custom_sites {
 	return %sites_cor_based_on_1;
 }
 
-
+###########################################################
 sub map_HBV_sites {
 	my $seq = shift;
 	my @sites_cor_based_on_1;
@@ -753,7 +772,7 @@ sub map_HBV_sites {
 }
 
 
-
+#################################################################
 sub getAMPpeaks {
 	my $abi_file= shift;
 
@@ -904,7 +923,7 @@ sub getAMPpeaks {
 	return $amppeaks_long;
 }
 
-
+##########################################
 
 sub max {
 	my $data_ref = shift;
@@ -918,7 +937,7 @@ sub max {
 	return $max;
 }
 
-
+##########################################################
 
 sub peakvalues {
 	my $indexes_ref = shift;
@@ -946,7 +965,7 @@ sub peakvalues {
 }
 
 
-
+#######################################################3
 sub getpeaks { 
 	my $trace_ref = shift;
 	my ($values_ref, $lengths_ref) = rle($trace_ref);
@@ -966,7 +985,7 @@ sub getpeaks {
 }
 
 
-
+#####################################################
 sub diff {
 	my $data_ref = shift;
 	my @data=@{$data_ref};
@@ -980,7 +999,7 @@ sub diff {
 	return \@diff;
 }
 
-
+########################################################
 sub rle {
 	my $data_ref = shift;
 	my @data = @{$data_ref};
@@ -1004,14 +1023,14 @@ sub rle {
 }
 
 
-
+##############################################33
 sub sign
 {
 	return wantarray? map{($_ < 0)? -1: (($_ > 0)? 1: 0)} @_:
 		($_[0] < 0)? -1: (($_[0] > 0)? 1: 0);
 }
 
-
+#################################################
 sub plotchroma {
 
 	# === CONFIGURATION ===
